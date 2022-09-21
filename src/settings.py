@@ -1,3 +1,4 @@
 import os
 
-database_dsn = os.getenv("DATABASE_DSN")
+DB_CONNECTION_STRING = os.getenv("DB_CONNECTION_STRING")
+GITHUB_BASE_URL = os.getenv("GITHUB_BASE_URL")

@@ -1,18 +1,15 @@
 -- migrate:up
-CREATE TABLE Provider (
-    id serial primary key,
-    name varchar(30)
-);
+CREATE TYPE provider_type as ENUM('Github', 'Gitlab');
 
-CREATE TABLE User (
+CREATE TABLE "user" (
     id serial primary key,
     login varchar(100),
-    email varcahr(100),
+    email varchar(100),
     twitter_username varchar(20),
-    provider int,
-    FOREIGN KEY (provider) REFERENCES Provider(id)
+    provider provider_type not null,
+    query_date date not null default current_date
 );
 
 -- migrate:down
-DROP TABLE User;
-DROP TABLE Provider;
+DROP TYPE provider_type
+DROP TABLE "user";
