@@ -2,7 +2,7 @@ from asyncpg.connection import Connection
 
 from src.querys import insert
 from src.schemas.user import UserOutput
-from src.providers.provider import ProviderType
+from src.schemas.provider import ProviderType
 
 
 async def insert_user(user: UserOutput, provider: ProviderType, conn: Connection):

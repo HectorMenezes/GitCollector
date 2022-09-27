@@ -4,11 +4,11 @@ import requests
 
 from src.exceptions.provider import ProviderErrorException
 from src.schemas.user import UserOutput
-from src.providers import BaseProvider
+from src.providers import IProvider
 from src.settings import GITHUB_BASE_URL
 
 
-class Github(BaseProvider):
+class Github(IProvider):
 
     def get_user(self, username: str) -> Optional[UserOutput]:
         user = requests.get(f"{GITHUB_BASE_URL}/users/{username}")
@@ -24,3 +24,6 @@ class Github(BaseProvider):
             twitter_username=user["twitter_username"],
             email=user["email"],
         )
+
+    def __str__(self) -> str:
+        return "Github"

@@ -1,2 +1,3 @@
 class Gitlab:
-    pass
+    def __str__(self) -> str:
+        return "Gitlab"

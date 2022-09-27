@@ -2,8 +2,9 @@ from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from asyncpg.connection import Connection
 
-from src.providers.provider import Provider, ProviderType
+from src.providers.provider import Provider
 from src.schemas.user import UserOutput
+from src.schemas.provider import ProviderType
 from src.services.database import get_conn
 from src.querys.user import insert_user
 import src.docs.user as user_docs
